@@ -21,10 +21,25 @@ error_reporting(E_ALL);
 
     <!-- Custom styles for this template -->
     <link href="styles/blog.css" rel="stylesheet">
+    <link href="styles/style.css">
 </head>
 <body>
   
   <?php include_once("header.php") ?>
+
+  <?php
+
+    $sql = "SELECT Title, Body, Author FROM posts";
+    $statement = $connection->prepare($sql);
+
+    $statement->execute();
+
+    $statement->setFetchMode(PDO::FETCH_ASSOC);
+
+
+    $posts = $statement->fetchAll();
+
+  ?>
 
   <?php include_once("posts.php") ?> 
 
