@@ -1,0 +1,11 @@
+INSERT INTO comments (id, author, text, post_id) VALUES (1, 'Lucius Sulla', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, cum.', 1);
+INSERT INTO comments (id, author, text, post_id) VALUES (2, 'Lucius Sulla', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore minus illum sunt, tempore aspernatur nostrum.', 2);
+INSERT INTO comments (id, author, text, post_id) VALUES (3, 'Lucius Sulla', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto natus provident accusantium.', 3);
+
+INSERT INTO comments (id, author, text, post_id) VALUES (4, 'Publius Tacitus', 'Inde consilium mihi ... tradere ... sine ira et studio, quorum causas procul habeo.', 1);
+INSERT INTO comments (id, author, text, post_id) VALUES (5, 'Publius Tacitus', 'Aut viam inveniam aut faciam.', 2);
+INSERT INTO comments (id, author, text, post_id) VALUES (6, 'Publius Tacitus', 'Nullum magnum ingenium sine mixture dementia fuit.', 3);
+
+INSERT INTO comments (id, author, text, post_id) VALUES (7, 'Marcu Cato', 'Fere libenter homines id quod volunt credunt.', 1);
+INSERT INTO comments (id, author, text, post_id) VALUES (8, 'Marcu Cato', 'Excusatio non petita, accusatio manifesta.', 2);
+INSERT INTO comments (id, author, text, post_id) VALUES (9, 'Marcu Cato', 'Generosus equus non curat canem latrantem.', 3);

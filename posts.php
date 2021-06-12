@@ -1,111 +1,54 @@
 
 <?php include_once("header.php") ?>
-
 <?php
 
-    $sql = "SELECT Id, Title, Body, Author FROM posts";
-    $statement = $connection->prepare($sql);
+  $sql = "SELECT id, title, body, author, created_at FROM posts ORDER BY created_at DESC";
+  $statement = $connection->prepare($sql);
 
-    $statement->execute();
+  $statement->execute();
 
-    $statement->setFetchMode(PDO::FETCH_ASSOC);
+  $statement->setFetchMode(PDO::FETCH_ASSOC);
 
 
-    $posts = $statement->fetchAll();
+  $posts = $statement->fetchAll();
 
-  ?>
+?>
 
 <main role="main" class="container">
 
-<div class="row">
+  <div class="row">
 
-  <div class="col-sm-8 blog-main">
+    <div class="col-sm-8 blog-main">
 
-  <?php
-    foreach ($posts as $post) {
-  ?>
+      <?php
+        foreach ($posts as $post) {
+      ?>
 
-    <article class="va-c-article">
-        <header>
-            <h1><a href="single-post.php?post_id=<?php echo($post['Id']) ?>"><?php echo($post['Title']) ?></a></h1>
+        <article class="va-c-article">
+            <header>
+                <h1><a href="single-post.php?id=<?php echo($post['id']) ?>" class="blog_title"><?php echo($post['title']) ?></a></h1>
 
-            <!-- zameniti  datum i ime sa pravim imenom i datumom blog post-a iz baze -->
-            <div class="va-c-article__meta">28-07-1989 by <?php echo($post['Author']) ?></div>
-        </header>
+                <div class="va-c-article__meta"><?php echo($post['created_at']) ?> by <?php echo($post['author']) ?></div>
+            </header>
 
-        <div>
-            <!-- zameniti ovaj privremeni (testni) text sa pravim sadrzajem blog post-a iz baze -->
-            <p><?php echo($post['Body']) ?></p>
-        </div>
-    </article>
+            <div>
+                <p><?php echo($post['body']) ?></p>
+            </div>
+        </article>
 
-  <?php
-    }
-  ?>
+      <?php
+        }
+      ?>
 
-
-    <!-- <div class="blog-post">
-      <h2 class="blog-post-title"><a href="single-post.php"></a></h2>
-      <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
-
-      <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
-      <hr>
-      <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-      <blockquote>
-        <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-      </blockquote>
-      <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-      <h2>Heading<a href="#"></a>
-      <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-      <h3>Sub-heading</h3>
-      <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-      <pre><code>Example code block</code></pre>
-      <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-      <h3>Sub-heading</h3>
-      <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <ul>
-        <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-        <li>Donec id elit non mi porta gravida at eget metus.</li>
-        <li>Nulla vitae elit libero, a pharetra augue.</li>
-      </ul>
-      <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-      <ol>
-        <li>Vestibulum id ligula porta felis euismod semper.</li>
-        <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-        <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-      </ol>
-      <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+      <nav class="blog-pagination">
+        <a class="btn btn-outline-primary" href="#">Older</a>
+        <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+      </nav>
     </div>
+    
+    <?php include_once("sidebar.php") ?>
 
-    <div class="blog-post">
-      <h2 class="blog-post-title"><a href="single-post.php">Another blog post<a></h2>
-      <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
+  </div>
+</main>
 
-      <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-      <blockquote>
-        <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-      </blockquote>
-      <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-      <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-    </div>
-
-    <div class="blog-post">
-      <h2 class="blog-post-title"><a href="single-post.php">New feature<a></h2>
-      <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
-
-      <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <ul>
-        <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-        <li>Donec id elit non mi porta gravida at eget metus.</li>
-        <li>Nulla vitae elit libero, a pharetra augue.</li>
-      </ul>
-      <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-      <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-    </div> -->
-
-  <nav class="blog-pagination">
-    <a class="btn btn-outline-primary" href="#">Older</a>
-    <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-  </nav>
-
-</div>
+<?php include_once("footer.php") ?>
