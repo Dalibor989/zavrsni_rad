@@ -1,8 +1,8 @@
 <?php
 
   $servername = "127.0.0.1";
-  $username = "phpmyadmin";
-  $password = "daranasus";
+  $username = "root";
+  $password = "vivify";
   $dbname = "blog";
 
   try {

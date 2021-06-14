@@ -5,8 +5,6 @@ error_reporting(E_ALL);
 ?>
 <html>
 
-  <?php header("Location: posts.php") ?>
-
-  <?php include_once("posts.php") ?> 
+  <?php header("Location: posts.php") ?> 
 
 </html>

@@ -2,7 +2,7 @@
 <?php include_once("includes/header.php") ?>
 <?php
 
-  $sql = "SELECT id, title, body, author, created_at FROM posts ORDER BY created_at DESC";
+  $sql = "SELECT id, title, body, created_at FROM posts ORDER BY created_at DESC";
 
   $posts = dbConnection($connection, $sql);
 
@@ -22,7 +22,7 @@
         <header>
           <h1><a href="single-post.php?id=<?php echo($post['id']) ?>" class="blog_title"><?php echo($post['title']) ?></a></h1>
 
-          <div class="va-c-article__meta"><?php echo($post['created_at']) ?> by <strong><?php echo($post['author']) ?></strong></div>
+          <!-- <div class="va-c-article__meta"><?php echo($post['created_at']) ?> by <strong><?php echo($post['author']) ?></strong></div> -->
         </header>
 
         <div>

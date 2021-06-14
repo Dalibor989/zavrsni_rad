@@ -17,7 +17,7 @@
   
   <div>
     <ul>
-      <li><?php echo($comment['text']) ?> </br>
+      <li><?php echo($comment['text']) ?> <br>
       by <strong><?php echo($comment['cAuthor']) ?></strong></li>
     </ul>
   </div>

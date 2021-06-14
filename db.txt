@@ -1,6 +1,6 @@
 CREATE DATABASE blog;
 
-CREATE TABLE posts (id int, title varchar(100), body text, author varchar(100), created_at date);
+CREATE TABLE posts (id int NOT NULL AUTO_INCREMENT, title varchar(100), body text, author_id int AUTO_INCREMENT, created_at date, PRIMARY KEY(id));
 
 INSERT INTO posts (id. title, body, author, created_at) VALUES (1, 'Sapere aude', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus enim laboriosam incidunt nemo qui, mollitia, pariatur amet illum eligendi vitae iusto aut alias eius! Quos, culpa. Quae blanditiis consequuntur quaerat dignissimos nulla, consectetur id!', 'Licinius Aurelianus', '2020-07-28')
 
