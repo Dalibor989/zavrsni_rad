@@ -1,11 +1,11 @@
 @media (min-width: 48em) {
-    html {
-        font-size: 14px;
-    }
+  html {
+      font-size: 14px;
+  }
 }
 
 .nav {
-    background-color: #b34848;
+  background-color: #b34848;
 }
 
 h1,
@@ -21,9 +21,9 @@ h5,
 h6,
 .h6,
 .blog_title {
-    color: #b34848;
+  color: #b34848;
 }
 
 .blog_title:hover {
-    color: #b34848;
+  color: #b34848;
 }

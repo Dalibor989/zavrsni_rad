@@ -1,16 +1,10 @@
-
-<?php include_once("header.php") ?>
+<?php include_once("includes/db-connection.php") ?>
+<?php include_once("includes/header.php") ?>
 <?php
 
   $sql = "SELECT id, title, body, author, created_at FROM posts ORDER BY created_at DESC";
-  $statement = $connection->prepare($sql);
 
-  $statement->execute();
-
-  $statement->setFetchMode(PDO::FETCH_ASSOC);
-
-
-  $posts = $statement->fetchAll();
+  $posts = dbConnection($connection, $sql);
 
 ?>
 
@@ -24,17 +18,17 @@
         foreach ($posts as $post) {
       ?>
 
-        <article class="va-c-article">
-            <header>
-                <h1><a href="single-post.php?id=<?php echo($post['id']) ?>" class="blog_title"><?php echo($post['title']) ?></a></h1>
+      <article class="va-c-article">
+        <header>
+          <h1><a href="single-post.php?id=<?php echo($post['id']) ?>" class="blog_title"><?php echo($post['title']) ?></a></h1>
 
-                <div class="va-c-article__meta"><?php echo($post['created_at']) ?> by <?php echo($post['author']) ?></div>
-            </header>
+          <div class="va-c-article__meta"><?php echo($post['created_at']) ?> by <strong><?php echo($post['author']) ?></strong></div>
+        </header>
 
-            <div>
-                <p><?php echo($post['body']) ?></p>
-            </div>
-        </article>
+        <div>
+          <p><?php echo($post['body']) ?></p>
+        </div>
+      </article>
 
       <?php
         }
@@ -46,9 +40,9 @@
       </nav>
     </div>
     
-    <?php include_once("sidebar.php") ?>
+    <?php include_once("includes/sidebar.php") ?>
 
   </div>
 </main>
 
-<?php include_once("footer.php") ?>
+<?php include_once("includes/footer.php") ?>
