@@ -1,6 +1,6 @@
 CREATE DATABASE blog;
 
-CREATE TABLE posts (id int NOT NULL AUTO_INCREMENT, title varchar(100), body text, author_id int AUTO_INCREMENT, created_at date, PRIMARY KEY(id));
+CREATE TABLE posts (id int NOT NULL AUTO_INCREMENT, title varchar(100), body text, author_id int, created_at date, PRIMARY KEY(id), FOREIGN KEY (author_id) REFERENCES author(id));
 
 INSERT INTO posts (id. title, body, author, created_at) VALUES (1, 'Sapere aude', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus enim laboriosam incidunt nemo qui, mollitia, pariatur amet illum eligendi vitae iusto aut alias eius! Quos, culpa. Quae blanditiis consequuntur quaerat dignissimos nulla, consectetur id!', 'Licinius Aurelianus', '2020-07-28')
 
@@ -8,7 +8,7 @@ INSERT INTO posts (id. title, body, author, created_at) VALUES (2, 'Audentes for
 
 INSERT INTO posts (id. title, body, author, created_at) VALUES (3, 'Ars longa, vita brevis', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat beatae soluta porro repudiandae corrupti consequuntur dicta omnis non natus commodi. Atque facilis vel fugiat tempore quae explicabo temporibus at rem.', 'Tiberius Augustus', '2016-10-14')
 
-CREATE TABLE comments (id int, author varchar(100), text text, post_id);
+CREATE TABLE comments (id int NOT NULL AUTO_INCREMENT, author_id int, text text, post_id int, PRIMARY KEY (id), FOREIGN KEY (author_id) REFERENCES author(id));
 
 INSERT INTO comments (id, author, text, post_id) VALUES (1, 'Lucius Sulla', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, cum.', 1);
 INSERT INTO comments (id, author, text, post_id) VALUES (2, 'Lucius Sulla', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore minus illum sunt, tempore aspernatur nostrum.', 2);
@@ -21,3 +21,5 @@ INSERT INTO comments (id, author, text, post_id) VALUES (6, 'Publius Tacitus', '
 INSERT INTO comments (id, author, text, post_id) VALUES (7, 'Marcu Cato', 'Fere libenter homines id quod volunt credunt.', 1);
 INSERT INTO comments (id, author, text, post_id) VALUES (8, 'Marcu Cato', 'Excusatio non petita, accusatio manifesta.', 2);
 INSERT INTO comments (id, author, text, post_id) VALUES (9, 'Marcu Cato', 'Generosus equus non curat canem latrantem.', 3);
+
+CREATE TABLE author (id int NOT NULL AUTO_INCREMENT, firstName varchar(100), lastName varchar(100), gender ENUM('M', 'F'));

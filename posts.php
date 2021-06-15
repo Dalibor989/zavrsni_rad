@@ -2,7 +2,7 @@
 <?php include_once("includes/header.php") ?>
 <?php
 
-  $sql = "SELECT id, title, body, created_at FROM posts ORDER BY created_at DESC";
+  $sql = "SELECT posts.id AS postId, posts.title, posts.body, posts.created_at, CONCAT(author.first_name, ' ', author.last_name) AS fullName FROM posts INNER JOIN author ON posts.author_id = author.id ORDER BY posts.created_at DESC";
 
   $posts = dbConnection($connection, $sql);
 
@@ -20,9 +20,9 @@
 
       <article class="va-c-article">
         <header>
-          <h1><a href="single-post.php?id=<?php echo($post['id']) ?>" class="blog_title"><?php echo($post['title']) ?></a></h1>
+          <h1><a href="single-post.php?id=<?php echo($post['postId']) ?>" class="blog_title"><?php echo($post['title']) ?></a></h1>
 
-          <!-- <div class="va-c-article__meta"><?php echo($post['created_at']) ?> by <strong><?php echo($post['author']) ?></strong></div> -->
+          <div class="va-c-article__meta"><?php echo($post['created_at']) ?> by <strong><?php echo($post['fullName']) ?></strong></div>
         </header>
 
         <div>
@@ -43,6 +43,7 @@
     <?php include_once("includes/sidebar.php") ?>
 
   </div>
+  
 </main>
 
 <?php include_once("includes/footer.php") ?>

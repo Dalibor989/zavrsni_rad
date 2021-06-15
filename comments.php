@@ -3,7 +3,7 @@
 
 <?php
 
-  $sql = "SELECT comments.author AS cAuthor, comments.text FROM comments LEFT JOIN posts ON posts.id = comments.post_id WHERE comments.post_id = {$_GET['id']}";
+  $sql = "SELECT comments.text FROM comments LEFT JOIN author ON author.id = comments.author_id WHERE comments.post_id = {$_GET['id']}";
 
   $comments = dbConnection($connection, $sql);
 

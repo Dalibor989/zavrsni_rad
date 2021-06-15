@@ -1,8 +1,8 @@
 <?php
 
   $servername = "127.0.0.1";
-  $username = "root";
-  $password = "vivify";
+  $username = "phpmyadmin";
+  $password = "daranasus";
   $dbname = "blog";
 
   try {
@@ -27,6 +27,18 @@
     }
 
     return $statement->fetchAll();
+  }
+
+  function insertQuery($connection, $sqlCreate) {
+
+    try {
+      $statement = $connection->prepare($sqlCreate);
+      $statement->execute();
+      echo 'New record created succefully.';
+    } catch(PDOException $e) {
+      echo $sqlCreate . "<br>" . $e->getMessage();
+    }
+
   }
 
 ?>
