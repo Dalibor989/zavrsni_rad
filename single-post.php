@@ -10,24 +10,24 @@
 			<?php
 				if(isset($_GET['id'])) {
 					
-					$sql = "SELECT posts.title, posts.body, CONCAT(author.first_name, ' ', author.last_name) AS fullName FROM posts INNER JOIN author ON posts.author_id = author.id WHERE posts.id = {$_GET['id']}";
+					$sql = "SELECT posts.title, posts.body, posts.created_at,CONCAT(author.first_name, ' ', author.last_name) AS fullName FROM posts INNER JOIN author ON posts.author_id = author.id WHERE posts.id = {$_GET['id']}";
 			
 					$post = dbConnection($connection, $sql, $isSingle = true);
-				
+          
 			?>
 				
-          <article class="va-c-article">
-            <header>
-            <h1><?php echo($post['title']) ?></a></h1>
-            <div class="va-c-article__meta"> by <strong><?php echo($post['fullName']) ?></strong></div>
-            </header>
+        <article class="va-c-article">
+          <header>
+          <h1><?php echo($post['title']) ?></a></h1>
+          <div class="va-c-article__meta"><?php echo($post['created_at']) ?> by <strong><?php echo($post['fullName']) ?></strong></div>
+          </header>
 
-            <div>
-            <p><?php echo($post['body']) ?></p>
+          <div>
+          <p><?php echo($post['body']) ?></p>
 
-            <?php include_once('comments.php') ?>
-            </div>
-          </article>
+          <?php include_once('comments.php') ?>
+          </div>
+        </article>
 			<?php
 				} else {
 					echo('id nije prosledjen kroz $_GET');

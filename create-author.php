@@ -37,16 +37,19 @@
 
       <div class="col-sm-8 blog-main">
     
-        <input type="text" placeholder="first name" name="first_name">
+        <input type="text" placeholder="first name" name="first_name" class="input-field">
         <br>
-        <input type="text" placeholder="last name" name="last_name"> <br>
+        <input type="text" placeholder="last name" name="last_name" class="input-field"> <br>
         
-        <input type="radio"  name="gender" value="M">
-        <label for="male">Male</label>
-        <input type="radio" name="gender" value="F">
-        <label for="male">Female</label><br>
+        <label>Male
+          <input id="radio-check" type="radio"  name="gender" value="M">
+        </label>
         
-        <button type="submit" name="author-button" value="Submit">Submit</button>
+        <label>Female
+          <input id ="radio-check" type="radio" name="gender" value="F">
+        </label><br>
+        
+        <button type="submit" name="author-button" value="Submit" class="button">Sign up</button>
       </div>
 
       <?php include_once("includes/sidebar.php") ?>
@@ -56,8 +59,7 @@
   </div>
 
 </form>
-  
 
-
+<script src="main.js"></script>
 
 <?php include_once("includes/footer.php") ?>

@@ -40,15 +40,23 @@
 
       <div class="col-sm-8 blog-main">
 
-        <?php foreach($authors as $author) { ?>
-            <input type="radio" name="author" value="<?php echo($author['author_id']) ?>">
-            <label for="author"><?php echo($author['fullName']) ?></label><br>
-        <?php } ?>
+        <div class="dropdown">
+          <button class="dropbtn">Authors</button>
+          <div class="dropdown-content">
+          <?php foreach($authors as $author) { ?>
+            <label>
+              <input id="radio-check" type="radio" name="author" value="<?php echo($author['author_id']) ?>">
+              <?php echo($author['fullName']) ?>
+            </label><br>
+          <?php } ?>
+          </div>
+        </div><br><br>
         
-        <input type="text" name="title"> <br><br>
-        <textarea name="body" rows="10" cols="50"></textarea> <br><br>
         
-        <button type="submit" name="post-button" id="create-post">Post</button>
+        <input type="text" name="title" placeholder="Title" class="input-field"> <br><br>
+        <textarea name="body" rows="10" cols="50" placeholder="Post text" class="input-field"></textarea> <br><br>
+        
+        <button type="submit" name="post-button" class="button">Post</button>
 
       </div>
     
@@ -60,5 +68,6 @@
 
 </form>
 
+<script src="main.js"></script>
 
 <?php include_once("includes/footer.php") ?>
