@@ -3,7 +3,7 @@
 
 <?php
 
-  $sql = "SELECT id AS author_id, CONCAT(first_name, ' ', last_name) AS fullName FROM author;";
+  $sql = "SELECT gender, id AS author_id, CONCAT(first_name, ' ', last_name) AS fullName FROM author;";
   $authors = dbConnection($connection, $sql);
 
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -44,8 +44,8 @@
           <button class="dropbtn">Authors</button>
           <div class="dropdown-content">
           <?php foreach($authors as $author) { ?>
-            <label>
-              <input id="radio-check" type="radio" name="author" value="<?php echo($author['author_id']) ?>">
+            <label class="<?php echo($author['gender']) ?>">
+              <input type="radio" name="author" value="<?php echo($author['author_id']) ?>">
               <?php echo($author['fullName']) ?>
             </label><br>
           <?php } ?>

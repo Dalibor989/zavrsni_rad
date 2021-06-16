@@ -65,6 +65,7 @@ h6,
 }
 
 .dropdown-content {
+  color: red;
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -74,3 +75,11 @@ h6,
 }
 
 .dropdown:hover .dropdown-content {display: block;}
+
+.M {
+  color: #395aa8;
+}
+
+.F {
+  color: #b34898;
+}

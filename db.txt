@@ -22,4 +22,4 @@ INSERT INTO comments (id, author, text, post_id) VALUES (7, 'Marcu Cato', 'Fere 
 INSERT INTO comments (id, author, text, post_id) VALUES (8, 'Marcu Cato', 'Excusatio non petita, accusatio manifesta.', 2);
 INSERT INTO comments (id, author, text, post_id) VALUES (9, 'Marcu Cato', 'Generosus equus non curat canem latrantem.', 3);
 
-CREATE TABLE author (id int NOT NULL AUTO_INCREMENT, firstName varchar(100), lastName varchar(100), gender ENUM('F', 'M'), PRIMARY KEY (id));
+CREATE TABLE author (id int NOT NULL AUTO_INCREMENT, first_name varchar(100), last_name varchar(100), gender ENUM('F', 'M'), PRIMARY KEY (id));
