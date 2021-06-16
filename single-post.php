@@ -28,6 +28,7 @@
           <?php include_once('comments.php') ?>
           </div>
         </article>
+        
 			<?php
 				} else {
 					echo('id nije prosledjen kroz $_GET');

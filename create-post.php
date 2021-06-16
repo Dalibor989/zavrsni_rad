@@ -43,14 +43,9 @@
         <div class="dropdown">
           <button class="dropbtn">Authors</button>
           <div class="dropdown-content">
-          <?php foreach($authors as $author) { ?>
-            <label class="<?php echo($author['gender']) ?>">
-              <input type="radio" name="author" value="<?php echo($author['author_id']) ?>">
-              <?php echo($author['fullName']) ?>
-            </label><br>
-          <?php } ?>
+          <?php include_once("includes/authors.php") ?>
           </div>
-        </div><br><br>
+      </div><br><br>
         
         
         <input type="text" name="title" placeholder="Title" class="input-field"> <br><br>

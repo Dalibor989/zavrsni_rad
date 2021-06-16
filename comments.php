@@ -3,7 +3,7 @@
 
 <?php
 
-  $sql = "SELECT comments.text FROM comments LEFT JOIN author ON author.id = comments.author_id WHERE comments.post_id = {$_GET['id']}";
+  $sql = "SELECT comments.text, CONCAT(author.first_name, ' ', author.last_name) AS cAuthor FROM comments LEFT JOIN author ON author.id = comments.author_id WHERE comments.post_id = {$_GET['id']}";
 
   $comments = dbConnection($connection, $sql);
 

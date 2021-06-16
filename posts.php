@@ -14,6 +14,13 @@
 
     <div class="col-sm-8 blog-main">
 
+      <div class="dropdown">
+        <button class="dropbtn">All authors</button>
+        <div class="dropdown-content">
+          <?php include_once("includes/authors.php") ?>
+        </div>
+      </div><br><br>
+
       <?php
         foreach ($posts as $post) {
       ?>
