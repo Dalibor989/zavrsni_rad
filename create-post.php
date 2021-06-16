@@ -43,9 +43,9 @@
         <div class="dropdown">
           <button class="dropbtn">Authors</button>
           <div class="dropdown-content">
-          <?php include_once("includes/authors.php") ?>
+            <?php include_once("includes/authors.php") ?>
           </div>
-      </div><br><br>
+        </div><br><br>
         
         
         <input type="text" name="title" placeholder="Title" class="input-field"> <br><br>

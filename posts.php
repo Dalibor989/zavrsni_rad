@@ -1,5 +1,6 @@
 <?php include_once("includes/db-connection.php") ?>
 <?php include_once("includes/header.php") ?>
+
 <?php
 
   $sql = "SELECT posts.id AS postId, posts.title, posts.body, posts.created_at, CONCAT(author.first_name, ' ', author.last_name) AS fullName FROM posts INNER JOIN author ON posts.author_id = author.id ORDER BY posts.created_at DESC";
